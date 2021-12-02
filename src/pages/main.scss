@@ -1,0 +1,587 @@
+$red: #f00;
+$black: #000;
+$white: #fff;
+$light-whilte: #aaa;
+$light-bg: #111;
+
+@mixin header {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background-color: $light-whilte;
+    height: 2px;
+    width: 100%;
+    z-index: -1;
+  }
+  span {
+    background-color: $black;
+    padding: 0.5rem 3rem;
+    border-radius: 10px;
+    border: 2px $light-whilte solid;
+    font-weight: 700;
+  }
+}
+
+.home {
+  padding: 0;
+  margin-top: 6.5rem;
+
+  .slide {
+    height: 70vh; //minimum height
+    background-size: cover !important ;
+    background-position: center !important;
+
+    padding: 2rem 9%;
+    display: flex;
+    align-items: center;
+    .content {
+      width: 40rem;
+
+      span {
+        font-size: 2rem;
+        color: $red;
+        display: block;
+      }
+      h3 {
+        font-size: 3rem;
+        color: $white;
+        padding: 1rem 0;
+      }
+    }
+  }
+}
+
+.swiper-pagination-bullet {
+  padding: 0.7rem;
+  background: $white;
+  &.swiper-pagination-bullet-active {
+    background: $red;
+  }
+}
+.about {
+  margin: 4rem 0;
+
+  .about-wrapper {
+    padding: 3rem 3rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .about-image {
+      width: 30rem;
+      flex: 1 1 35rem;
+      position: relative;
+      justify-self: center;
+      margin: 2rem;
+      padding: 0.5rem;
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        background: $red;
+        height: 10rem;
+        width: 10rem;
+      }
+      &::before {
+        top: 0;
+        left: 0;
+      }
+      &::after {
+        bottom: 0;
+        right: 0;
+      }
+    }
+    img {
+      width: 100%;
+      padding: 1rem; //need a paading to push ::after and ::right
+    }
+    .about-detail {
+      margin: 0 20px;
+      h3 {
+        font-size: 1.7rem;
+      }
+      .about-btn {
+        a {
+          display: inline-block;
+          padding: 1rem 4rem;
+          cursor: pointer;
+          font-size: 1rem;
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+  .grid-4 {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 0.5fr 1.2fr 0.5fr;
+  }
+}
+
+/*--------------Feature------------------*/
+
+.main-feature {
+  .image {
+    width: 100%;
+    overflow: hidden;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+  .grid3 {
+    //grid auto-fit & minmax is to make collection responsive
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(32rem, 1fr));
+  }
+  .box {
+    text-align: center;
+    color: $white;
+    background-color: $light-bg;
+    height: 100%;
+    padding-top: 1rem;
+    img {
+      height: 5rem;
+      margin-bottom: 1rem;
+      filter: invert(1);
+    }
+  }
+}
+
+.feature-header {
+  position: relative;
+  padding: 1rem;
+  margin-bottom: 3rem;
+  @include header;
+}
+
+/*-------------Prcing--------------*/
+
+.pricing {
+  .pricing-group {
+    padding: 3rem 0;
+    margin: 0 1rem;
+    .pricing-box {
+      height: 100%;
+      padding: 1rem;
+    }
+  }
+  h1,
+  h4 {
+    color: $white;
+    padding: 1rem 0;
+  }
+
+  p {
+    color: $light-whilte;
+  }
+  i {
+    padding-right: 1rem;
+  }
+  span {
+    font-size: 2rem;
+    color: $red;
+    padding: 0 0.5rem;
+  }
+
+  .second {
+    background: linear-gradient(130deg, $light-bg 93%, transparent 90%);
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  .outline:hover {
+    border: 2px $light-whilte solid;
+  }
+}
+
+/*----------------trainer------------------*/
+
+.trainer-header {
+  position: relative;
+  margin: 4rem 0;
+  @include header;
+}
+.trainer {
+  .trainer-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 20px;
+
+    .box {
+      height: 35rem;
+      overflow: hidden;
+      position: relative;
+      &:hover .content {
+        transform: translateY(0);
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 2rem;
+        background-color: $light-bg;
+        transform: translateY(6.5rem);
+        span {
+          font-size: 1.5rem;
+          text-align: center;
+          color: $red;
+        }
+        h3 {
+          color: $white;
+          font-size: 2.2rem;
+          padding: 1rem 0;
+        }
+        .share {
+          border-top: 2px $light-whilte solid;
+          a {
+            color: $white;
+            font-size: 1.5rem;
+            padding: 1rem 15px;
+            &:hover {
+              color: $red;
+            }
+          }
+        }
+      }
+    }
+  }
+  .trainer-wrapper {
+    margin-bottom: 5rem;
+  }
+}
+/*----------------banner-----------------*/
+.bannertop {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../images/banner-bg.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.banner-main {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  .testimonials {
+    flex: 1 1 30rem;
+    margin: 1.5rem;
+  }
+
+  .testimonials-slide {
+    flex: 1 1 45rem;
+
+    .swiper-container {
+      //The swiper entire size
+      width: 45rem;
+    }
+    .slide-group {
+      background: linear-gradient(130deg, $light-bg 93%, transparent 90%);
+      padding: 1rem 3rem;
+
+      p {
+        color: $white;
+      }
+
+      .user {
+        display: flex;
+        align-items: center;
+        margin-top: 1.5rem;
+        img {
+          width: 4rem;
+          height: 4rem;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-right: 1rem;
+        }
+        h3 {
+          color: $white;
+          font-size: 1.5rem;
+        }
+        i {
+          margin-left: auto;
+          margin-right: 1rem;
+          font-size: 3rem;
+          color: $red;
+        }
+      }
+    }
+  }
+}
+
+/*----------blogs-----------*/
+.blog-head {
+  position: relative;
+  margin-bottom: 3rem;
+  @include header;
+}
+.main-blogs-slide {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+
+  .slide-group {
+    //don't set the width for each group
+    margin-bottom: 7rem;
+    background-color: $light-bg;
+
+    .image {
+      height: 20rem;
+      width: 100%;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+    .content {
+      padding: 2rem;
+      h3 {
+        color: $red;
+        padding: 1rem 0;
+      }
+      span,
+      h4 {
+        color: $white;
+        padding: 1rem 0;
+        font-size: 1.5rem;
+      }
+      p {
+        color: $light-whilte;
+      }
+    }
+  }
+  .swiper-pagination-bullets {
+    margin-bottom: 2rem;
+    padding: 0.7rem;
+    .swiper-pagination-bullet {
+      background: $white;
+      &.swiper-pagination-bullet-active {
+        background: $red;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1286px) {
+  .banner .testimonials-slide {
+    flex: 1 1 35rem;
+    .swiper-container {
+      //The swiper entire size
+      width: 45rem;
+    }
+    .slide-group {
+      padding: 1rem 3rem;
+    }
+    .testimonials {
+      text-align: center;
+      p {
+        padding: 0.5rem 2rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1204px) {
+  .about {
+    .about-detail {
+      justify-self: center;
+      .about-group {
+        padding: 0.7rem 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  html,
+  body {
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+  }
+  .about {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+    .about-detail {
+      justify-self: center;
+      margin: 0 1.8rem;
+      padding: 1rem 1.5rem;
+      .about-group {
+        padding: 0.7rem 1rem;
+      }
+    }
+    .grid-4 {
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.3fr 0.3fr 1.2fr 0.5fr;
+    }
+  }
+
+  .pricing {
+    .grid-3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-3 > *:first-child {
+      grid-column: 1 / span 2;
+      border: 2px $light-whilte solid;
+      text-align: center;
+    }
+    .pricing-box {
+      padding: 1rem;
+    }
+  }
+  .feature {
+    .grid-3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .box {
+      padding-top: 2rem;
+      margin: 2rem 1rem;
+      background-color: transparent;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .home .slide {
+    padding: 2rem 10%;
+
+    .content {
+      width: 35rem;
+
+      h3 {
+        font-size: 2rem;
+        color: $white;
+        padding: 1rem 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .feature {
+    .grid-3 {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .box {
+      padding-top: 2rem;
+      margin: 2rem 0;
+      background-color: $light-bg;
+    }
+    image {
+      margin: 2rem 0;
+    }
+    h3 {
+      font-size: 2rem;
+      font-weight: 800;
+    }
+  }
+  .banner .testimonials-slide {
+    flex: 1 1 30rem;
+
+    .swiper-container {
+      //The swiper entire size
+      width: 40rem;
+    }
+
+    .slide-group {
+      padding: 1rem 2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about {
+    margin: 2rem 0;
+    .about-image {
+      width: 30rem;
+      justify-self: center;
+      margin: 1rem;
+    }
+    .about-group h3 {
+      font-size: 1.1rem;
+    }
+    .grid-4 {
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.3fr 0.3fr 1.2fr 0.2fr;
+    }
+    .about-btn {
+      justify-self: center;
+      display: block;
+    }
+  }
+  .feature {
+    .feature-header {
+      span {
+        font-size: 2.5rem;
+      }
+    }
+  }
+
+  .pricing {
+    .grid-3 {
+      grid-template-columns: 1fr;
+    }
+    .grid-3 > *:first-child {
+      grid-column: 1;
+      padding: 1rem;
+      border: 2px $light-whilte solid;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .about {
+    .about-wrapper {
+      padding: 1rem 1rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .about-image {
+      width: 30rem;
+      justify-self: center;
+      margin: 1rem;
+    }
+    .about-group h3 {
+      font-size: 1.1rem;
+    }
+    .grid-4 {
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.3fr 0.3fr 1.2fr 0.2fr;
+    }
+  }
+  .banner .testimonials-slide {
+    flex: 1 1 25rem;
+    .swiper-container {
+      //The swiper entire size
+      width: 24rem;
+    }
+
+    .slide-group {
+      width: 22rem;
+      padding: 1rem 1.5rem;
+    }
+  }
+}

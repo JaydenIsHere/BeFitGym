@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,600&family=Nunito:wght@300;400;600&family=Roboto:wght@300;400;500;700&display=swap');
+
+$red: #f00;
+$black: #000;
+$white: #fff;
+$light-whilte: #aaa;
+$light-bg: #111;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px;
+  background: $black;
+  z-index: 10;
+
+  .logo {
+    font-weight: bolder;
+    color: $white;
+    font-size: 2.7rem;
+    span {
+      color: $red;
+    }
+  }
+  .navbar a {
+    color: $white;
+    padding: 1rem 1.2rem;
+    font-size: 1rem;
+
+    &:hover {
+      background: $red;
+      border-radius: 5px;
+    }
+  }
+}
+
+#menu-btn {
+  font-size: 2rem;
+  color: $white;
+  cursor: pointer;
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  #menu-btn {
+    display: inline-block;
+    margin-right: 10px;
+    &.fa-times {
+      transform: rotate(180deg);
+    }
+  }
+
+  header {
+    padding: 1em;
+    z-index: 10; //make sure we can see the drop down
+
+    .navbar {
+      position: absolute;
+      top: 99%;
+      left: 0;
+      right: 0;
+      background: $light-bg;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /*we used clippy*/
+      &.active {
+        z-index: 10;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /*we used clippy*/
+      }
+      a {
+        display: block; //vertical navbar
+        font-size: 2rem;
+        margin: 0.8rem 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+}
