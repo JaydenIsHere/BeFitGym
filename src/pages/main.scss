@@ -53,13 +53,19 @@ $light-bg: #111;
     }
   }
 }
-
 .swiper-pagination-bullet {
   padding: 0.7rem;
   background: $white;
   &.swiper-pagination-bullet-active {
     background: $red;
   }
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  color: $red;
+  font-size: 0.5rem;
+  background-color: $light-whilte;
+  padding: 0.5rem;
 }
 .about {
   margin: 4rem 0;
@@ -475,6 +481,10 @@ $light-bg: #111;
         padding: 1rem 0;
       }
     }
+  }
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    display: none;
   }
 }
 

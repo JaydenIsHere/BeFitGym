@@ -44,19 +44,19 @@ const Footer = () => {
 
             <p>
               {' '}
-              <i class='fas fa-phone'></i> +123-456-7890{' '}
+              <i class='fas fa-phone'></i> +65-9888-7890{' '}
             </p>
             <p>
               {' '}
-              <i class='fas fa-phone'></i> +111-222-3333{' '}
+              <i class='fas fa-phone'></i> +65-2222-3333{' '}
             </p>
             <p>
               {' '}
-              <i class='fas fa-envelope'></i> shaikhanas@gmail.com{' '}
+              <i class='fas fa-envelope'></i> gym@gmail.com{' '}
             </p>
             <p>
               {' '}
-              <i class='fas fa-map'></i> mumbai, india - 400104{' '}
+              <i class='fas fa-map'></i> Singapore - 168168{' '}
             </p>
             <div className='share'>
               <Link to='#' class='fab fa-facebook-f'></Link>
